@@ -3,7 +3,7 @@ import React from 'react';
 
 const QuickInquiry: React.FC = () => {
   return (
-    <section id="enquiry-section" className="bg-black py-32 relative">
+    <section id="enquiry-section" className="bg-black py-32 relative scroll-mt-32">
       {/* Decorative side line */}
       <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-600/30"></div>
       
@@ -50,7 +50,7 @@ const QuickInquiry: React.FC = () => {
                   <textarea 
                     rows={4} 
                     className="w-full bg-black/40 border-b-2 border-white/10 p-4 focus:border-blue-600 outline-none transition-all text-white placeholder-white/20 resize-none" 
-                    placeholder="DESCRIBE PROJECT PARAMETERS OR PRODUCT REQUIREMENTS..."
+                    placeholder="DESCRIBE YOUR REQUIREMENTS..."
                   ></textarea>
                 </div>
                 

@@ -13,10 +13,13 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const handleHashChange = () => {
-      setCurrentPath(window.location.hash || '#/');
-      // We don't window.scrollTo(0,0) here if there's a sub-hash, 
-      // as the component (Divisions) will handle its own scrolling.
-      if (!window.location.hash.includes('#/divisions#')) {
+      const newPath = window.location.hash || '#/';
+      setCurrentPath(newPath);
+      
+      // Only scroll to top if there isn't a specific element ID target in the hash
+      // This allows internal section scrolling (like Divisions) to work.
+      const hasSectionTarget = newPath.split('#').length > 2;
+      if (!hasSectionTarget) {
         window.scrollTo(0, 0);
       }
     };
@@ -29,7 +32,6 @@ const App: React.FC = () => {
   }, []);
 
   const renderContent = () => {
-    // Basic router logic supporting sub-hashes for scrolling
     if (currentPath === '#/' || currentPath === '') return <Home />;
     if (currentPath.startsWith('#/about')) return <About />;
     if (currentPath.startsWith('#/divisions')) return <Divisions />;
@@ -43,8 +45,7 @@ const App: React.FC = () => {
   return (
     <AnimatePresence mode="wait">
       <motion.div 
-        key={currentPath.split('#')[1] || 'root'} // Trigger animation on path change but ignore sub-hash if needed, 
-        // though usually we want path-level transitions.
+        key={currentPath.split('#')[1] || 'root'} 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}

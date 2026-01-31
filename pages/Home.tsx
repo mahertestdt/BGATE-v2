@@ -33,9 +33,16 @@ const Home: React.FC = () => {
               <span className="w-12 h-[2px] bg-blue-600"></span>
               <span className="text-xs font-black uppercase tracking-[0.5em] text-blue-500">Established 2005</span>
             </div>
-            <h1 className="text-6xl md:text-9xl font-black mb-8 leading-none tracking-tighter uppercase text-glow-blue font-majestic">
-              {BRAND_NAME} <br/> <span className="text-blue-600 italic text-4xl md:text-6xl tracking-widest">Industrial Excellence</span>
+            
+            <h1 className="flex flex-col font-black tracking-tighter uppercase text-glow-blue font-majestic mb-12">
+              <span className="text-7xl md:text-[10rem] leading-[0.85] block">
+                {BRAND_NAME}
+              </span>
+              <span className="text-blue-600 italic text-2xl md:text-5xl tracking-[0.2em] md:tracking-[0.4em] leading-none mt-2 md:mt-4 block transform -translate-y-1">
+                Industrial Excellence
+              </span>
             </h1>
+
             <p className="text-xl md:text-2xl text-slate-400 mb-12 leading-relaxed max-w-2xl font-light">
               High-performance automation, HSE ecosystems, and strategic industrial supply for Saudi Arabia's infrastructure.
             </p>

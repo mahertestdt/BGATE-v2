@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { NavItem } from '../types';
 import { BRAND_NAME } from '../constants';
@@ -20,18 +21,14 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToEnquiry = (e: React.MouseEvent) => {
+  const scrollToTerminal = (e: React.MouseEvent) => {
     e.preventDefault();
     const element = document.getElementById('enquiry-section');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // If we're not on the main page, go there and scroll
-      window.location.hash = '#/';
-      setTimeout(() => {
-         const el = document.getElementById('enquiry-section');
-         if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
+      // Fallback if the element isn't in DOM for some reason
+      window.location.hash = '#/contact';
     }
     setIsMobileMenuOpen(false);
   };
@@ -65,13 +62,12 @@ const Header: React.FC = () => {
           ))}
           <a
             href="#/contact"
-            onClick={scrollToEnquiry}
             className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 transition-colors"
           >
             Network
           </a>
           <button
-            onClick={scrollToEnquiry}
+            onClick={scrollToTerminal}
             className="px-6 py-2.5 bg-blue-600/10 border border-blue-500/50 text-blue-400 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-[0_0_20px_rgba(0,112,255,0.1)]"
           >
             Terminal
@@ -103,8 +99,15 @@ const Header: React.FC = () => {
                 {item.label}
               </a>
             ))}
+            <a
+              href="#/contact"
+              className="text-lg font-bold uppercase tracking-[0.3em] text-slate-300 border-b border-white/5 pb-4"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Network
+            </a>
             <button
-              onClick={scrollToEnquiry}
+              onClick={scrollToTerminal}
               className="py-5 bg-blue-600 text-white font-bold uppercase tracking-widest"
             >
               Access Terminal
