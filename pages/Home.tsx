@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { DIVISIONS, PARTNERS, BRAND_NAME } from '../constants';
 import { motion } from 'framer-motion';
@@ -86,7 +87,7 @@ const Home: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
             {DIVISIONS.map((div) => (
               <a key={div.id} href="#/divisions" className="group relative block aspect-[4/5] overflow-hidden bg-slate-900 border border-white/5">
                 <img 
@@ -99,7 +100,7 @@ const Home: React.FC = () => {
                   <div className="text-blue-500 text-[10px] font-black uppercase tracking-[0.4em] mb-4 group-hover:translate-x-2 transition-transform">
                     {div.id}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4 uppercase tracking-tighter group-hover:text-glow-blue transition-all">{div.title}</h3>
+                  <h3 className="text-xl font-bold mb-4 uppercase tracking-tighter group-hover:text-glow-blue transition-all">{div.title}</h3>
                   <p className="text-slate-400 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500 line-clamp-2">
                     {div.description}
                   </p>

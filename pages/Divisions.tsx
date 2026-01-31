@@ -1,104 +1,83 @@
-
 import React from 'react';
+import { DIVISIONS } from '../constants';
 
 const Divisions: React.FC = () => {
   return (
-    <div className="animate-in fade-in duration-700 bg-black text-white">
-      <section className="py-32 border-b border-white/5 bg-slate-900/20">
+    <div className="bg-black text-white min-h-screen">
+      {/* Page Header */}
+      <section className="pt-48 pb-24 border-b border-white/5 bg-slate-900/10">
         <div className="container mx-auto px-6">
-          <h1 className="text-5xl md:text-7xl font-black mb-6 uppercase tracking-tighter text-glow-blue font-majestic">Operational <br/> Intelligence</h1>
-          <p className="text-xl text-slate-400 max-w-2xl font-light leading-relaxed">
-            Strategic engineering segments optimized for automation, protection, and mission-critical supply.
-          </p>
-        </div>
-      </section>
-
-      {/* Control Division */}
-      <section id="control" className="py-32 relative">
-        <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-            <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="w-12 h-1 bg-blue-600"></span>
-                <span className="font-black text-blue-500 uppercase tracking-[0.3em] text-xs">Automation Protocol</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 uppercase tracking-tighter font-majestic">Control Division</h2>
-              <p className="text-lg text-slate-400 mb-10 leading-relaxed font-light">
-                Engineering sophisticated Building Automation and Energy Management Systems (BMS/DDC). We create intelligent environments that optimize resource consumption through precise logic and hardware orchestration.
-              </p>
-              
-              <div className="bg-white/5 p-10 border border-white/10 rounded-sm">
-                <h4 className="font-black text-blue-500 mb-6 uppercase text-xs tracking-[0.4em]">Fabrication Matrix</h4>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm font-bold uppercase tracking-widest text-slate-300">
-                  <li className="flex items-center gap-3">
-                    <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span> DDC PANELS
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span> PLC CONTROL
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span> LIGHTING SYSTEMS
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="w-1.5 h-1.5 bg-blue-600 rounded-full"></span> MOTOR STARTERS
-                  </li>
-                </ul>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-2 gap-4">
-               <div className="space-y-4">
-                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc48?auto=format&fit=crop&q=80&w=600" className="rounded-sm grayscale brightness-50 border border-white/10 w-full h-64 object-cover" alt="Server Room" />
-                 <img src="https://images.unsplash.com/photo-1597484662317-9bd77399169a?auto=format&fit=crop&q=80&w=600" className="rounded-sm border border-white/10 w-full h-80 object-cover" alt="Automation" />
-               </div>
-               <div className="space-y-4 pt-12">
-                 <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=600" className="rounded-sm border border-white/10 w-full h-80 object-cover" alt="Wires" />
-                 <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?auto=format&fit=crop&q=80&w=600" className="rounded-sm grayscale brightness-50 border border-white/10 w-full h-64 object-cover" alt="Components" />
-               </div>
-            </div>
+          <div className="max-w-4xl">
+            <h1 className="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter text-glow-blue font-majestic">
+              Operational <br/> Units
+            </h1>
+            <p className="text-xl text-slate-400 font-light leading-relaxed max-w-2xl">
+              BGATE operates four strategic engineering divisions, each optimized for mission-critical industrial applications and high-performance infrastructure.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Safety Division */}
-      <section id="safety" className="py-32 bg-slate-900/30 border-y border-white/5">
-        <div className="container mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-start mb-20 gap-12">
-            <div className="max-w-xl">
-              <div className="flex items-center gap-4 mb-8">
-                <span className="w-12 h-1 bg-blue-600"></span>
-                <span className="font-black text-blue-500 uppercase tracking-[0.3em] text-xs">Protection Protocol</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8 uppercase tracking-tighter font-majestic">Safety Division</h2>
-              <p className="text-lg text-slate-400 font-light leading-relaxed">
-                Primary supplier of environmentally friendly, high-quality Personal Safety Products (PPE) in Saudi Arabia. We secure workforces with the industry's most reliable protection gear.
-              </p>
-            </div>
-            <div className="bg-white/5 border border-white/10 p-10 rounded-sm">
-              <h4 className="font-black mb-6 text-blue-500 uppercase text-xs tracking-[0.4em]">HSE SERVICES</h4>
-              <ul className="space-y-4 text-sm font-bold uppercase tracking-widest text-slate-300">
-                <li>• HSE CONSULTANCY</li>
-                <li>• CERTIFIED TRAINING</li>
-                <li>• SITE INSPECTIONS</li>
-              </ul>
-            </div>
-          </div>
+      {/* Alternating Divisions List */}
+      <div className="divide-y divide-white/5">
+        {DIVISIONS.map((div, index) => (
+          <section key={div.id} className="py-32 overflow-hidden">
+            <div className="container mx-auto px-6">
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center ${index % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+                
+                {/* Image Side */}
+                <div className={`${index % 2 !== 0 ? 'lg:order-2' : ''} relative group`}>
+                  <div className="absolute -inset-4 bg-blue-600/10 rounded-sm blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
+                  <div className="relative aspect-[16/10] overflow-hidden rounded-sm border border-white/10 shadow-2xl">
+                    <img 
+                      src={div.image} 
+                      alt={div.title} 
+                      className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  </div>
+                  {/* Technical Overlay */}
+                  <div className="absolute -bottom-6 -right-6 bg-blue-600 px-8 py-4 hidden md:block">
+                    <span className="text-xs font-black uppercase tracking-[0.4em]">UNIT: 0{index + 1}</span>
+                  </div>
+                </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { title: 'HEAD & FACE', desc: 'HELMETS, GOGGLES, SHIELDS' },
-              { title: 'RESPIRATORY', desc: 'MASKS, BREATHING APPARATUS' },
-              { title: 'BODY & FALL', desc: 'COVERALLS, HARNESSES' },
-              { title: 'ROAD & SIGNS', desc: 'BARRIERS, CUSTOM SIGNAGE' }
-            ].map(item => (
-              <div key={item.title} className="p-8 bg-black/50 border border-white/10 rounded-sm hover:border-blue-600 transition-all group">
-                <h5 className="font-black text-white mb-3 tracking-widest group-hover:text-blue-500 transition-colors uppercase text-sm">{item.title}</h5>
-                <p className="text-[10px] font-bold text-slate-500 tracking-[0.2em]">{item.desc}</p>
+                {/* Content Side */}
+                <div className={index % 2 !== 0 ? 'lg:order-1' : ''}>
+                  <div className="flex items-center gap-4 mb-8">
+                    <span className="w-12 h-[2px] bg-blue-600"></span>
+                    <span className="text-xs font-black uppercase tracking-[0.4em] text-blue-500">{div.tagline}</span>
+                  </div>
+                  <h2 className="text-4xl md:text-6xl font-bold mb-8 uppercase tracking-tighter font-majestic">{div.title}</h2>
+                  <p className="text-lg text-slate-400 mb-12 leading-relaxed font-light">
+                    {div.description}
+                  </p>
+                  
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div className="p-6 bg-white/5 border border-white/10 rounded-sm">
+                      <h4 className="text-xs font-black text-blue-500 uppercase tracking-widest mb-3">Capabilities</h4>
+                      <ul className="text-[10px] font-bold text-slate-300 space-y-2 uppercase tracking-widest">
+                        <li>• Engineering Design</li>
+                        <li>• Strategic Sourcing</li>
+                        <li>• Field Commissioning</li>
+                      </ul>
+                    </div>
+                    <div className="p-6 bg-white/5 border border-white/10 rounded-sm">
+                      <h4 className="text-xs font-black text-blue-500 uppercase tracking-widest mb-3">Compliance</h4>
+                      <ul className="text-[10px] font-bold text-slate-300 space-y-2 uppercase tracking-widest">
+                        <li>• ISO Certified Protocols</li>
+                        <li>• Saudi Aramco Standards</li>
+                        <li>• 24/7 Support Matrix</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          </section>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,99 +1,91 @@
-
 import React from 'react';
 import { MAIN_OFFICE, JUBAIL_BRANCH } from '../constants';
 
 const Contact: React.FC = () => {
   return (
-    <div className="animate-in fade-in duration-700">
-      <section className="py-24 bg-slate-100">
-        <div className="container mx-auto px-6 text-center">
-          <h1 className="text-5xl font-bold mb-6">Get In Touch</h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            Connect with our engineering experts or safety specialists for your next major project.
+    <div className="bg-black text-white min-h-screen">
+      <section className="pt-48 pb-24 border-b border-white/5 bg-slate-900/10">
+        <div className="container mx-auto px-6">
+          <h1 className="text-6xl md:text-8xl font-black mb-8 uppercase tracking-tighter text-glow-blue font-majestic">
+            Network <br/> Access
+          </h1>
+          <p className="text-xl text-slate-400 max-w-2xl font-light">
+            Connect with our engineering specialists or safety consultants via our Saudi Arabia headquarters and regional branches.
           </p>
         </div>
       </section>
 
-      <section className="py-24">
+      <section className="py-32">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
             
-            {/* Contact Form Placeholder UI */}
-            <div className="bg-white p-10 shadow-2xl rounded-2xl border border-slate-100">
-              <h2 className="text-3xl font-bold mb-8">Send an Inquiry</h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-2 gap-6">
-                  <div>
-                    <label className="block text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Full Name</label>
-                    <input type="text" className="w-full p-4 border border-slate-200 rounded focus:border-blue-500 outline-none transition-all" placeholder="John Doe" />
+            {/* Contact Form */}
+            <div className="bg-white/5 p-12 border border-white/10 rounded-sm relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/10 blur-3xl"></div>
+              <h2 className="text-3xl font-bold mb-12 uppercase tracking-tighter font-majestic">Transmission Terminal</h2>
+              <form className="space-y-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div className="space-y-4">
+                    <label className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Full Identity</label>
+                    <input type="text" className="w-full bg-black/40 border-b border-white/20 p-4 outline-none focus:border-blue-600 transition-all text-white" placeholder="NAME" />
                   </div>
-                  <div>
-                    <label className="block text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Email Address</label>
-                    <input type="email" className="w-full p-4 border border-slate-200 rounded focus:border-blue-500 outline-none transition-all" placeholder="john@company.com" />
+                  <div className="space-y-4">
+                    <label className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Email Node</label>
+                    <input type="email" className="w-full bg-black/40 border-b border-white/20 p-4 outline-none focus:border-blue-600 transition-all text-white" placeholder="EMAIL" />
                   </div>
                 </div>
-                <div>
-                  <label className="block text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Subject</label>
-                  <select className="w-full p-4 border border-slate-200 rounded focus:border-blue-500 outline-none transition-all">
-                    <option>General Inquiry</option>
-                    <option>Control Division / Automation</option>
-                    <option>Safety Equipment / HSE</option>
-                    <option>Trading / Industrial Supply</option>
+                <div className="space-y-4">
+                  <label className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Target Division</label>
+                  <select className="w-full bg-black/40 border-b border-white/20 p-4 outline-none focus:border-blue-600 transition-all text-white/50">
+                    <option>General Support</option>
+                    <option>Control & Automation</option>
+                    <option>Industrial Insulation</option>
+                    <option>Safety & PPE</option>
                   </select>
                 </div>
-                <div>
-                  <label className="block text-sm font-bold uppercase tracking-widest text-slate-500 mb-2">Message</label>
-                  <textarea rows={5} className="w-full p-4 border border-slate-200 rounded focus:border-blue-500 outline-none transition-all" placeholder="How can we help you?"></textarea>
+                <div className="space-y-4">
+                  <label className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Message Payload</label>
+                  <textarea rows={4} className="w-full bg-black/40 border-b border-white/20 p-4 outline-none focus:border-blue-600 transition-all text-white resize-none" placeholder="DESCRIBE YOUR REQUIREMENTS..."></textarea>
                 </div>
-                <button type="button" className="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded shadow-lg transition-all">
-                  Submit Request
+                <button type="button" className="w-full py-6 bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-widest shadow-[0_0_30px_rgba(0,112,255,0.3)] transition-all">
+                  Submit Transmission
                 </button>
               </form>
             </div>
 
             {/* Office Locations */}
-            <div className="space-y-12">
+            <div className="space-y-16">
               <div>
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white text-xs">1</span>
-                  Main Office - Dammam
-                </h3>
-                <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 space-y-4">
-                  <p className="text-lg font-medium">{MAIN_OFFICE.address}</p>
-                  <p className="text-slate-600">{MAIN_OFFICE.pobox}</p>
-                  <div className="pt-4 border-t border-slate-200 grid grid-cols-2 gap-4">
-                    <div>
-                      <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Phone</span>
-                      {MAIN_OFFICE.phone.map(p => <p key={p} className="text-sm font-bold">{p}</p>)}
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="w-8 h-8 bg-blue-600 flex items-center justify-center text-xs font-black">01</span>
+                  <h3 className="text-2xl font-bold uppercase tracking-widest">Dammam HQ</h3>
+                </div>
+                <div className="space-y-6 text-slate-400 font-light border-l border-white/10 pl-8 ml-4">
+                  <p className="text-xl text-white">{MAIN_OFFICE.address}</p>
+                  <p>{MAIN_OFFICE.pobox}</p>
+                  <div className="grid grid-cols-2 gap-8 pt-4">
+                    <div className="space-y-2">
+                      <span className="block text-[10px] font-black text-blue-500 uppercase tracking-widest">Telecommunication</span>
+                      <p className="text-white text-sm font-bold">{MAIN_OFFICE.phone[0]}</p>
                     </div>
-                    <div>
-                      <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Fax</span>
-                      <p className="text-sm font-bold">{MAIN_OFFICE.fax}</p>
+                    <div className="space-y-2">
+                      <span className="block text-[10px] font-black text-blue-500 uppercase tracking-widest">Digital Mail</span>
+                      <p className="text-white text-sm font-bold">{MAIN_OFFICE.emails[0]}</p>
                     </div>
-                  </div>
-                  <div className="pt-4">
-                    <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Email</span>
-                    {MAIN_OFFICE.emails.map(e => <p key={e} className="text-sm font-bold text-blue-600">{e}</p>)}
                   </div>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
-                  <span className="w-8 h-8 bg-blue-900 rounded flex items-center justify-center text-white text-xs">2</span>
-                  Jubail Branch (Fire & Safety)
-                </h3>
-                <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 space-y-4">
-                  <p className="text-lg font-medium">{JUBAIL_BRANCH.address}</p>
-                  <div className="pt-4 border-t border-slate-200 grid grid-cols-2 gap-4">
-                    <div>
-                      <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Phone</span>
-                      <p className="text-sm font-bold">{JUBAIL_BRANCH.phone[0]}</p>
-                    </div>
-                    <div>
-                      <span className="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Fax</span>
-                      <p className="text-sm font-bold">{JUBAIL_BRANCH.fax}</p>
-                    </div>
+                <div className="flex items-center gap-4 mb-8">
+                  <span className="w-8 h-8 bg-slate-800 flex items-center justify-center text-xs font-black">02</span>
+                  <h3 className="text-2xl font-bold uppercase tracking-widest">Jubail Operations</h3>
+                </div>
+                <div className="space-y-6 text-slate-400 font-light border-l border-white/10 pl-8 ml-4">
+                  <p className="text-xl text-white">{JUBAIL_BRANCH.address}</p>
+                  <div className="space-y-2 pt-4">
+                    <span className="block text-[10px] font-black text-blue-500 uppercase tracking-widest">Direct Line</span>
+                    <p className="text-white text-sm font-bold">{JUBAIL_BRANCH.phone[0]}</p>
                   </div>
                 </div>
               </div>
@@ -102,13 +94,6 @@ const Contact: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* SEO Metadata Hint */}
-      <div className="hidden">
-        <h3>SEO Metadata</h3>
-        <p>Title: Contact BGATE | Offices in Dammam & Jubail</p>
-        <p>Description: Get in touch with BGATE. Our main office is in Dammam with a dedicated Fire & Safety branch in Jubail. Contact us for engineering solutions in Saudi Arabia.</p>
-      </div>
     </div>
   );
 };
