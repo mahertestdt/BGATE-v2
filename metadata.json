@@ -1,0 +1,7 @@
+{
+  "name": "BGATE - Ali Bin Qashash Al Omari General Contracting Co.",
+  "description": "Professional corporate website for BGATE, a leading Saudi engineering and general contracting firm specializing in Building Automation, HSE, and Industrial Trading.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
