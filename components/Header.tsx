@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { NavItem } from '../types';
 import { BRAND_NAME } from '../constants';
@@ -7,7 +6,6 @@ const navItems: NavItem[] = [
   { label: 'Intelligence', href: '#/about' },
   { label: 'Divisions', href: '#/divisions' },
   { label: 'Catalog', href: '#/catalog' },
-  { label: 'Network', href: '#/contact' },
 ];
 
 const Header: React.FC = () => {
@@ -28,10 +26,12 @@ const Header: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
+      // If we're not on the main page, go there and scroll
       window.location.hash = '#/';
       setTimeout(() => {
-         document.getElementById('enquiry-section')?.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+         const el = document.getElementById('enquiry-section');
+         if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
     }
     setIsMobileMenuOpen(false);
   };
@@ -63,11 +63,18 @@ const Header: React.FC = () => {
               {item.label}
             </a>
           ))}
+          <a
+            href="#/contact"
+            onClick={scrollToEnquiry}
+            className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 transition-colors"
+          >
+            Network
+          </a>
           <button
             onClick={scrollToEnquiry}
             className="px-6 py-2.5 bg-blue-600/10 border border-blue-500/50 text-blue-400 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-[0_0_20px_rgba(0,112,255,0.1)]"
           >
-            Enquiry
+            Terminal
           </button>
         </nav>
 
@@ -100,7 +107,7 @@ const Header: React.FC = () => {
               onClick={scrollToEnquiry}
               className="py-5 bg-blue-600 text-white font-bold uppercase tracking-widest"
             >
-              Start Enquiry
+              Access Terminal
             </button>
           </div>
         </div>

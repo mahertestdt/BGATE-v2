@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { DIVISIONS, PARTNERS, BRAND_NAME } from '../constants';
 import { motion } from 'framer-motion';
@@ -15,7 +14,7 @@ const Home: React.FC = () => {
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=2000" 
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000" 
             className="w-full h-full object-cover brightness-[0.2] contrast-[1.2]"
             alt="Industrial Backbone"
           />
@@ -33,11 +32,11 @@ const Home: React.FC = () => {
               <span className="w-12 h-[2px] bg-blue-600"></span>
               <span className="text-xs font-black uppercase tracking-[0.5em] text-blue-500">Established 2005</span>
             </div>
-            <h1 className="text-6xl md:text-8xl font-black mb-8 leading-none tracking-tighter uppercase text-glow-blue font-majestic">
-              Industrial <br/> <span className="text-blue-600 italic">Excellence</span>
+            <h1 className="text-6xl md:text-9xl font-black mb-8 leading-none tracking-tighter uppercase text-glow-blue font-majestic">
+              {BRAND_NAME} <br/> <span className="text-blue-600 italic text-4xl md:text-6xl tracking-widest">Industrial Excellence</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-400 mb-12 leading-relaxed max-w-2xl font-light">
-              High-performance automation, HSE ecosystems, and strategic industrial supply for Saudi Arabia's evolving infrastructure.
+              High-performance automation, HSE ecosystems, and strategic industrial supply for Saudi Arabia's infrastructure.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
               <button 
@@ -60,7 +59,7 @@ const Home: React.FC = () => {
         </div>
 
         {/* Vertical stats indicator */}
-        <div className="absolute right-10 bottom-24 hidden lg:flex flex-col gap-12 items-end">
+        <div className="absolute right-10 bottom-24 hidden lg:flex flex-col gap-12 items-end border-r border-blue-600/30 pr-6">
            <div className="text-right">
              <div className="text-4xl font-black text-blue-600 mb-1">18+</div>
              <div className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">Operation Years</div>
@@ -83,7 +82,7 @@ const Home: React.FC = () => {
               </p>
             </div>
             <div className="text-[10px] font-bold uppercase tracking-[0.5em] text-blue-500 border-b border-blue-600 pb-2">
-              System Core Active
+              System Active
             </div>
           </div>
 
