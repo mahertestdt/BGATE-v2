@@ -15,7 +15,7 @@ const Home: React.FC = () => {
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000" 
+            src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=2000" 
             className="w-full h-full object-cover brightness-[0.2] contrast-[1.2]"
             alt="Industrial Backbone"
           />
@@ -89,7 +89,11 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1">
             {DIVISIONS.map((div) => (
-              <a key={div.id} href="#/divisions" className="group relative block aspect-[4/5] overflow-hidden bg-slate-900 border border-white/5">
+              <a 
+                key={div.id} 
+                href={`#/divisions#${div.id}`} 
+                className="group relative block aspect-[4/5] overflow-hidden bg-slate-900 border border-white/5"
+              >
                 <img 
                   src={div.image} 
                   alt={div.title} 
