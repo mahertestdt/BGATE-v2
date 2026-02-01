@@ -1,8 +1,7 @@
-
 import React, { ReactNode } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import QuickInquiry from './QuickInquiry';
+import Header from './Header.tsx';
+import Footer from './Footer.tsx';
+import QuickInquiry from './QuickInquiry.tsx';
 
 interface LayoutProps {
   children: ReactNode;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { BRAND_NAME, COMPANY_NAME } from '../constants';
+import { BRAND_NAME, COMPANY_NAME } from '../constants.tsx';
 
 const About: React.FC = () => {
   return (

@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
-import { NavItem } from '../types';
-import { BRAND_NAME } from '../constants';
+import { NavItem } from '../types.ts';
+import { BRAND_NAME } from '../constants.tsx';
 
 const navItems: NavItem[] = [
   { label: 'Intelligence', href: '#/about' },
@@ -27,7 +26,6 @@ const Header: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     } else {
-      // Fallback if the element isn't in DOM for some reason
       window.location.hash = '#/contact';
     }
     setIsMobileMenuOpen(false);
@@ -49,7 +47,6 @@ const Header: React.FC = () => {
           </span>
         </a>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-10">
           {navItems.map((item) => (
             <a
@@ -74,7 +71,6 @@ const Header: React.FC = () => {
           </button>
         </nav>
 
-        {/* Mobile Toggle */}
         <button 
           className="md:hidden flex flex-col gap-1.5 p-2"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -85,7 +81,6 @@ const Header: React.FC = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-2xl border-b border-white/10 p-10 animate-in fade-in slide-in-from-top-4">
           <div className="flex flex-col gap-8 text-center">

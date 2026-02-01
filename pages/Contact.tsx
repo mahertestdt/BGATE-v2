@@ -1,17 +1,13 @@
-
 import React, { useState } from 'react';
-import { MAIN_OFFICE, JUBAIL_BRANCH } from '../constants';
+import { MAIN_OFFICE, JUBAIL_BRANCH } from '../constants.tsx';
 
 const Contact: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  
-  // LIVE FORMSPREE ENDPOINT
   const FORMSPREE_URL = "https://formspree.io/f/xgozenab";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus('submitting');
-
     const form = e.currentTarget;
     const data = new FormData(form);
 
@@ -19,9 +15,7 @@ const Contact: React.FC = () => {
       const response = await fetch(FORMSPREE_URL, {
         method: 'POST',
         body: data,
-        headers: {
-          'Accept': 'application/json'
-        }
+        headers: { 'Accept': 'application/json' }
       });
 
       if (response.ok) {
@@ -51,8 +45,6 @@ const Contact: React.FC = () => {
       <section className="py-32">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
-            
-            {/* Contact Form */}
             <div id="enquiry-section" className="bg-white/5 p-12 border border-white/10 rounded-sm relative overflow-hidden scroll-mt-32">
               <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/10 blur-3xl"></div>
               
@@ -120,7 +112,6 @@ const Contact: React.FC = () => {
               )}
             </div>
 
-            {/* Office Locations */}
             <div className="space-y-16">
               <div>
                 <div className="flex items-center gap-4 mb-8">
@@ -157,7 +148,6 @@ const Contact: React.FC = () => {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>

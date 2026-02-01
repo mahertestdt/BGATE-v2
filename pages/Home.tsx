@@ -1,5 +1,5 @@
 import React from 'react';
-import { DIVISIONS, PARTNERS, BRAND_NAME } from '../constants';
+import { DIVISIONS, PARTNERS, BRAND_NAME } from '../constants.tsx';
 import { motion } from 'framer-motion';
 
 const Home: React.FC = () => {
@@ -10,7 +10,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="animate-in fade-in duration-1000">
-      {/* Hero Section */}
       <section className="relative h-screen flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
@@ -70,7 +69,6 @@ const Home: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Vertical stats indicator */}
         <div className="absolute right-10 bottom-24 hidden lg:flex flex-col gap-12 items-end border-r border-blue-600/30 pr-6">
            <div className="text-right">
              <div className="text-4xl font-black text-blue-600 mb-1">18+</div>
@@ -83,7 +81,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Division HUD Grid */}
       <section id="divisions-grid" className="py-32 bg-black relative">
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row justify-between items-end mb-24 gap-10">
@@ -120,7 +117,6 @@ const Home: React.FC = () => {
                     {div.description}
                   </p>
                 </div>
-                {/* HUD Borders */}
                 <div className="absolute top-4 left-4 w-4 h-4 border-t-2 border-l-2 border-white/20 opacity-0 group-hover:opacity-100 transition-all"></div>
                 <div className="absolute bottom-4 right-4 w-4 h-4 border-b-2 border-r-2 border-blue-600 opacity-0 group-hover:opacity-100 transition-all"></div>
               </a>
@@ -129,7 +125,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Global Supply Matrix */}
       <section className="py-32 bg-slate-900/50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-24">

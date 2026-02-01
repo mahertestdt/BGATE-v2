@@ -1,4 +1,4 @@
-import { Division, Partner, ProductItem, ContactInfo } from './types';
+import { Division, Partner, ProductItem, ContactInfo } from './types.ts';
 
 export const COMPANY_NAME = "Ali Bin Qashash Al Omari General Contracting Co.";
 export const BRAND_NAME = "BGATE";

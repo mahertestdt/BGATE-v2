@@ -1,5 +1,5 @@
 import React from 'react';
-import { TRADING_CATALOG } from '../constants';
+import { TRADING_CATALOG } from '../constants.tsx';
 
 const Catalog: React.FC = () => {
   return (
