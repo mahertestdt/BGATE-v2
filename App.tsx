@@ -9,21 +9,37 @@ const DIVISIONS = [
     id: 'control',
     title: 'Control Division',
     tagline: 'Precision Automation & BMS',
-    description: 'Engineering sophisticated Building Automation and Energy Management Systems (BMS). We design and assemble mission-critical control panels.',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200'
+    description: 'We design and assemble DDC panels, Motor and Process Control Panels, and Power Distribution Panels. BGATE specializes in sophisticated Building Automation and Energy Management Systems (BMS & DDC) for mission-critical infrastructure.',
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200',
+    details: {
+      products: [
+        "BMS Control System", "DDC Panels", "PLC Panels", "Lighting controls", 
+        "Motor starters", "Soft start controllers", "Variable speed drives and controls",
+        "3-Way & 2-Way motorized valves", "Thermostats", "Humidistats", 
+        "Custom products", "Pre-Engineered products"
+      ],
+      applications: [
+        "HVAC", "Sewage water control", "Food Processing", 
+        "Power Generation", "Pumping Stations", "Agriculture"
+      ],
+      services: [
+        "Designing", "Programming", "Procurement", "Assembly", 
+        "Testing", "Commissioning", "Documentation", "Training & Seminars"
+      ]
+    }
   },
   {
     id: 'insulation',
     title: 'Industrial Insulation',
     tagline: 'Thermal & Acoustic Solutions',
-    description: 'Premier provider of industrial-grade insulation. High-performance Saudi Rockwool and polyurethane systems for complex thermal barriers.',
+    description: 'Premier provider of industrial-grade insulation. High-performance Saudi Rockwool and polyurethane systems for complex thermal barriers across the Kingdom.',
     image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200'
   },
   {
     id: 'trading',
     title: 'Trading Division',
     tagline: 'Global Industrial Supply',
-    description: 'Strategic supply chain management for specialized alloys, industrial valves, and heavy vibration control systems.',
+    description: 'Strategic supply chain management for specialized alloys, industrial valves, and heavy vibration control systems from world-class manufacturers.',
     image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=1200'
   },
   {
@@ -32,6 +48,24 @@ const DIVISIONS = [
     tagline: 'HSE & Workforce Protection',
     description: 'Leading provider of certified Personal Protection Equipment (PPE). Securing industrial workforces with premium safety gear.',
     image: 'https://images.unsplash.com/photo-1591955506264-3f5a6834570a?auto=format&fit=crop&q=80&w=1200'
+  }
+];
+
+const PARTNERS = [
+  {
+    name: 'SAUTER',
+    origin: 'Switzerland',
+    description: 'European leader in Building Automation and HVAC DDC. Over 100 years of experience in energy-efficient management.'
+  },
+  {
+    name: 'SIEMENS',
+    origin: 'Germany',
+    description: 'Global standard for building technology, energy savings, and failure security in HVAC applications.'
+  },
+  {
+    name: 'TITUS',
+    origin: 'USA',
+    description: 'World leader in air distribution and environmental terminal units.'
   }
 ];
 
@@ -63,17 +97,17 @@ const Header = () => {
           </div>
           <span className="text-2xl font-bold tracking-tighter text-glow-blue uppercase">{BRAND_NAME}</span>
         </a>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {['Intelligence', 'Divisions', 'Network'].map((item) => (
             <a 
               key={item}
               href={`#/${item === 'Network' ? 'contact' : item.toLowerCase()}`} 
-              className="px-3 py-2 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 hover:bg-white/5 rounded transition-all"
+              className="px-4 py-2 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 hover:bg-white/5 rounded transition-all active:scale-95"
             >
               {item}
             </a>
           ))}
-          <a href="#/contact" className="ml-4 px-8 py-3 bg-blue-600 text-white rounded-sm font-bold text-[11px] uppercase tracking-widest hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(0,112,255,0.4)] transition-all">
+          <a href="#/contact" className="ml-4 px-8 py-3 bg-blue-600 text-white rounded-sm font-bold text-[11px] uppercase tracking-widest hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(0,112,255,0.4)] transition-all active:scale-95">
             Inquiry
           </a>
         </nav>
@@ -104,14 +138,14 @@ const Home = () => (
             <span className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-500">Established 2005</span>
           </div>
           <h1 className="font-black tracking-tighter uppercase text-glow-blue font-majestic mb-8">
-            <span className="text-7xl md:text-[10rem] leading-[0.85] block transform transition-all duration-700">{BRAND_NAME}</span>
+            <span className="text-7xl md:text-[10rem] leading-[0.85] block">{BRAND_NAME}</span>
             <div className="mt-4">
                <span className="text-blue-600 italic text-2xl md:text-5xl block leading-none tracking-widest">Industrial</span>
                <span className="text-blue-600 italic text-2xl md:text-5xl block leading-none mt-2 tracking-widest">Excellence</span>
             </div>
           </h1>
           <p className="text-xl text-slate-300 mb-12 max-w-2xl font-light border-l border-blue-600/30 pl-8 leading-relaxed">
-            Precision building automation, high-heat thermal barriers, and specialized industrial supply for Saudi Arabia's growing infrastructure node.
+            Precision building automation, high-heat thermal barriers, and specialized industrial supply for Saudi Arabia's infrastructure.
           </p>
           <div className="flex flex-wrap gap-6">
             <a href="#/divisions" className="group relative px-12 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] rounded-sm overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(0,112,255,0.5)]">
@@ -125,7 +159,6 @@ const Home = () => (
         </div>
       </div>
 
-      {/* Scroll Hint */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth'})}>
         <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/60 group-hover:text-blue-400 transition-colors">Discover Operations</span>
         <div className="animate-bounce-subtle flex flex-col items-center">
@@ -171,10 +204,20 @@ const About = () => (
           </p>
           <div className="space-y-8 text-slate-400 text-lg leading-relaxed font-light">
             <p>Our mission is to provide unparalleled services to the Air-Conditioning, Refrigeration, and Safety industries through complete engineering solutions.</p>
-            <p>Since its inception, BGATE has become synonymous with quality and timely performance across the Kingdom, partnering with global leaders like SAUTER and TITUS.</p>
+            <p>Since its inception, BGATE has become synonymous with quality and timely performance across the Kingdom.</p>
+          </div>
+
+          <div className="mt-20 space-y-12">
+            <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-500 border-b border-white/10 pb-4">Network Distribution Partners</h3>
+            {PARTNERS.map(p => (
+              <div key={p.name} className="group border-l border-white/10 pl-8 hover:border-blue-600 transition-colors">
+                <h4 className="text-2xl font-bold font-majestic text-white group-hover:text-blue-500 transition-colors">{p.name} <span className="text-xs font-light text-slate-500 uppercase tracking-widest">[{p.origin}]</span></h4>
+                <p className="text-slate-400 text-sm mt-2 leading-relaxed">{p.description}</p>
+              </div>
+            ))}
           </div>
         </div>
-        <div className="border border-white/10 p-1 bg-slate-900/50 relative overflow-hidden group">
+        <div className="border border-white/10 p-1 bg-slate-900/50 relative overflow-hidden group h-fit">
           <img src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200" className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000" alt="BMS Engineering" />
           <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
         </div>
@@ -190,16 +233,54 @@ const Divisions = () => (
       <h1 className="text-7xl font-black mb-24 uppercase tracking-tighter text-glow-blue font-majestic">Operational Units</h1>
       <div className="space-y-32">
         {DIVISIONS.map((div, i) => (
-          <div key={div.id} className={`flex flex-col lg:flex-row gap-20 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
-            <div className="flex-1 group relative overflow-hidden border border-white/5 bg-slate-900">
-              <img src={div.image} className="w-full h-[500px] object-cover rounded-sm grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" alt={div.title} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+          <div key={div.id} className={`flex flex-col gap-12 ${i % 2 !== 0 ? 'lg:items-end' : ''}`}>
+            <div className={`flex flex-col lg:flex-row gap-20 items-start ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+              <div className="flex-1 group relative overflow-hidden border border-white/5 bg-slate-900 w-full">
+                <img src={div.image} className="w-full h-[500px] object-cover rounded-sm grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" alt={div.title} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
+              </div>
+              <div className="flex-1">
+                <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-xs mb-4 block">{div.tagline}</span>
+                <h2 className="text-5xl font-bold my-6 uppercase tracking-tighter font-majestic border-l-4 border-blue-600 pl-8">{div.title}</h2>
+                <p className="text-slate-400 text-lg leading-relaxed font-light">{div.description}</p>
+              </div>
             </div>
-            <div className="flex-1 p-8">
-              <span className="text-blue-500 font-black uppercase tracking-[0.4em] text-xs mb-4 block">{div.tagline}</span>
-              <h2 className="text-5xl font-bold my-6 uppercase tracking-tighter font-majestic border-l-4 border-blue-600 pl-8">{div.title}</h2>
-              <p className="text-slate-400 text-lg leading-relaxed font-light">{div.description}</p>
-            </div>
+            
+            {/* Extended Detail Grid for Control Division */}
+            {div.details && (
+              <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 border-t border-white/5 pt-16">
+                <div className="space-y-6">
+                  <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Products & Systems</h4>
+                  <ul className="grid grid-cols-1 gap-3">
+                    {div.details.products.map(item => (
+                      <li key={item} className="text-slate-300 text-xs font-bold uppercase tracking-widest flex items-center gap-3">
+                        <span className="w-1.5 h-1.5 bg-blue-600"></span> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="space-y-6">
+                  <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Operational Applications</h4>
+                  <ul className="grid grid-cols-1 gap-3">
+                    {div.details.applications.map(item => (
+                      <li key={item} className="text-slate-300 text-xs font-bold uppercase tracking-widest flex items-center gap-3">
+                        <span className="w-1.5 h-1.5 bg-slate-700"></span> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="space-y-6">
+                  <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Engineering Services</h4>
+                  <ul className="grid grid-cols-1 gap-3">
+                    {div.details.services.map(item => (
+                      <li key={item} className="text-slate-300 text-xs font-bold uppercase tracking-widest flex items-center gap-3">
+                        <span className="w-1.5 h-1.5 border border-blue-500/50"></span> {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            )}
           </div>
         ))}
       </div>
