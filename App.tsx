@@ -1,4 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 
 // --- Constants & Types ---
 const BRAND_NAME = "BGATE";
@@ -11,29 +13,37 @@ const DIVISIONS = [
     tagline: 'Precision Automation & BMS',
     description: 'We design and assemble DDC panels, Motor and Process Control Panels, and Power Distribution Panels. BGATE specializes in sophisticated Building Automation and Energy Management Systems (BMS & DDC) for mission-critical infrastructure.',
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200',
-    details: {
-      products: [
-        "BMS Control System", "DDC Panels", "PLC Panels", "Lighting controls", 
-        "Motor starters", "Soft start controllers", "Variable speed drives and controls",
-        "3-Way & 2-Way motorized valves", "Thermostats", "Humidistats", 
-        "Custom products", "Pre-Engineered products"
-      ],
-      applications: [
-        "HVAC", "Sewage water control", "Food Processing", 
-        "Power Generation", "Pumping Stations", "Agriculture"
-      ],
-      services: [
-        "Designing", "Programming", "Procurement", "Assembly", 
-        "Testing", "Commissioning", "Documentation", "Training & Seminars"
-      ]
-    }
+    details: [
+      {
+        label: "Products",
+        items: ["BMS Control System", "DDC Panels", "PLC Panels", "Lighting controls", "Motor starters", "Soft start controllers", "Variable speed drives and controls", "3-Way & 2-Way motorized valves", "Thermostats", "Humidistats", "Custom products", "Pre-Engineered products"]
+      },
+      {
+        label: "Applications",
+        items: ["HVAC", "Sewage water control", "Food Processing", "Power Generation", "Pumping Stations", "Agriculture"]
+      },
+      {
+        label: "Services",
+        items: ["Designing", "Programming", "Procurement", "Assembly", "Testing", "Commissioning", "Documentation", "Training & Seminars"]
+      }
+    ]
   },
   {
     id: 'insulation',
     title: 'Industrial Insulation',
     tagline: 'Thermal & Acoustic Solutions',
-    description: 'Premier provider of industrial-grade insulation. High-performance Saudi Rockwool and polyurethane systems for complex thermal barriers across the Kingdom.',
-    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200'
+    description: 'The Industrial Insulation Division provides comprehensive thermal and cold insulation systems, scaffolding services, and specialized cladding for petrochemical and commercial infrastructure.',
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80&w=1200',
+    details: [
+      {
+        label: "Provision Scope",
+        items: ["Pipe work insulation", "Cladding Services", "Thermal/Cold insulation installation", "Protection for Pipe work & Fittings", "Vessels and Boilers", "Duct work and Tanks", "Heating & Ventilation Insulation", "Custom/Standard Removable Blankets", "Scaffolding services"]
+      },
+      {
+        label: "Target Customers",
+        items: ["Petrochemical plants", "Oil Refineries", "Natural Gas Compressor stations", "Electrical Power Plants", "Equipment manufacturers", "Work Boats", "Hospitals", "Universities", "High rise Buildings"]
+      }
+    ]
   },
   {
     id: 'trading',
@@ -48,24 +58,6 @@ const DIVISIONS = [
     tagline: 'HSE & Workforce Protection',
     description: 'Leading provider of certified Personal Protection Equipment (PPE). Securing industrial workforces with premium safety gear.',
     image: 'https://images.unsplash.com/photo-1591955506264-3f5a6834570a?auto=format&fit=crop&q=80&w=1200'
-  }
-];
-
-const PARTNERS = [
-  {
-    name: 'SAUTER',
-    origin: 'Switzerland',
-    description: 'European leader in Building Automation and HVAC DDC. Over 100 years of experience in energy-efficient management.'
-  },
-  {
-    name: 'SIEMENS',
-    origin: 'Germany',
-    description: 'Global standard for building technology, energy savings, and failure security in HVAC applications.'
-  },
-  {
-    name: 'TITUS',
-    origin: 'USA',
-    description: 'World leader in air distribution and environmental terminal units.'
   }
 ];
 
@@ -97,17 +89,17 @@ const Header = () => {
           </div>
           <span className="text-2xl font-bold tracking-tighter text-glow-blue uppercase">{BRAND_NAME}</span>
         </a>
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden md:flex items-center gap-2">
           {['Intelligence', 'Divisions', 'Network'].map((item) => (
             <a 
               key={item}
               href={`#/${item === 'Network' ? 'contact' : item.toLowerCase()}`} 
-              className="px-4 py-2 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 hover:bg-white/5 rounded transition-all active:scale-95"
+              className="px-6 py-3 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 hover:bg-white/5 rounded transition-all active:scale-95"
             >
               {item}
             </a>
           ))}
-          <a href="#/contact" className="ml-4 px-8 py-3 bg-blue-600 text-white rounded-sm font-bold text-[11px] uppercase tracking-widest hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(0,112,255,0.4)] transition-all active:scale-95">
+          <a href="#/contact" className="ml-4 px-10 py-3 bg-blue-600 text-white rounded-sm font-bold text-[11px] uppercase tracking-widest hover:bg-blue-500 hover:shadow-[0_0_20px_rgba(0,112,255,0.4)] transition-all active:scale-95">
             Inquiry
           </a>
         </nav>
@@ -118,103 +110,119 @@ const Header = () => {
 
 // --- Page Views ---
 
-const Home = () => (
-  <div className="bg-black">
-    <section className="relative h-screen flex items-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000" 
-          className="w-full h-full object-cover brightness-[0.35] contrast-[1.1] opacity-90"
-          alt="Industrial Core"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,112,255,0.15),transparent_70%)]"></div>
-      </div>
-      
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl">
-          <div className="flex items-center gap-4 mb-6">
-            <span className="w-12 h-[2px] bg-blue-600 shadow-[0_0_10px_rgba(0,112,255,1)]"></span>
-            <span className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-500">Established 2005</span>
-          </div>
-          <h1 className="font-black tracking-tighter uppercase text-glow-blue font-majestic mb-8">
-            <span className="text-7xl md:text-[10rem] leading-[0.85] block">{BRAND_NAME}</span>
-            <div className="mt-4">
-               <span className="text-blue-600 italic text-2xl md:text-5xl block leading-none tracking-widest">Industrial</span>
-               <span className="text-blue-600 italic text-2xl md:text-5xl block leading-none mt-2 tracking-widest">Excellence</span>
-            </div>
-          </h1>
-          <p className="text-xl text-slate-300 mb-12 max-w-2xl font-light border-l border-blue-600/30 pl-8 leading-relaxed">
-            Precision building automation, high-heat thermal barriers, and specialized industrial supply for Saudi Arabia's infrastructure.
-          </p>
-          <div className="flex flex-wrap gap-6">
-            <a href="#/divisions" className="group relative px-12 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] rounded-sm overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(0,112,255,0.5)]">
-              <span className="relative z-10">Divisions</span>
-              <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
-            </a>
-            <a href="#/contact" className="px-12 py-5 bg-white/10 border border-white/20 text-white font-black uppercase tracking-[0.2em] rounded-sm hover:bg-blue-600 hover:border-blue-600 transition-all">
-              Contact and Inquire
-            </a>
-          </div>
-        </div>
-      </div>
+const Home = () => {
+  // Explicitly typing variants to avoid string literal widening and ensure compatibility with motion components
+  const containerVars: Variants = {
+    hidden: { opacity: 0 },
+    visible: { 
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.3 }
+    }
+  };
 
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth'})}>
-        <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/60 group-hover:text-blue-400 transition-colors">Discover Operations</span>
-        <div className="animate-bounce-subtle flex flex-col items-center">
-          <div className="w-5 h-5 border-b-2 border-r-2 border-blue-500 rotate-45 mb-[-10px]"></div>
-          <div className="w-5 h-5 border-b-2 border-r-2 border-blue-500/50 rotate-45"></div>
-        </div>
-      </div>
-    </section>
+  // Explicitly typing variants to ensure ease: "easeOut" is recognized as an Easing literal
+  const itemVars: Variants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
 
-    <section className="py-32 relative">
-      <div className="container mx-auto px-6">
-        <div className="flex items-end justify-between mb-24">
-          <h2 className="text-4xl font-black uppercase tracking-tighter text-glow-blue font-majestic">Operational Segments</h2>
-          <span className="text-[10px] font-black text-blue-600/50 uppercase tracking-[0.4em]">Vertical Units Active</span>
+  return (
+    <div className="bg-black">
+      <section className="relative h-screen flex items-center overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=2000" 
+            className="w-full h-full object-cover brightness-[0.45] contrast-[1.1] opacity-90"
+            alt="Industrial Core"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,112,255,0.15),transparent_70%)]"></div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
-          {DIVISIONS.map(div => (
-            <a key={div.id} href="#/divisions" className="group relative block aspect-[4/5] bg-slate-900 overflow-hidden border border-white/5">
-              <img src={div.image} className="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out" alt={div.title} />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent group-hover:via-blue-950/20 transition-all duration-700"></div>
-              <div className="absolute bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                <div className="text-blue-500 text-[10px] font-black mb-4 tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">{div.id}</div>
-                <h3 className="text-xl font-bold uppercase tracking-tighter group-hover:text-glow-blue transition-all">{div.title}</h3>
-                <div className="w-0 group-hover:w-full h-[1px] bg-blue-600 mt-4 transition-all duration-700"></div>
+        
+        <div className="container mx-auto px-6 relative z-10">
+          <motion.div 
+            className="max-w-5xl"
+            variants={containerVars}
+            initial="hidden"
+            animate="visible"
+          >
+            <motion.div variants={itemVars} className="flex items-center gap-4 mb-6">
+              <span className="w-12 h-[2px] bg-blue-600 shadow-[0_0_10px_rgba(0,112,255,1)]"></span>
+              <span className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-500">Established 2005</span>
+            </motion.div>
+            
+            <motion.h1 variants={itemVars} className="font-black tracking-tighter uppercase text-glow-blue font-majestic mb-8">
+              <span className="text-7xl md:text-[10rem] leading-[0.85] block">{BRAND_NAME}</span>
+              <div className="mt-4 flex flex-col md:flex-row md:gap-8">
+                 <span className="text-blue-600 italic text-2xl md:text-5xl block leading-none tracking-widest">Industrial</span>
+                 <span className="text-blue-600 italic text-2xl md:text-5xl block leading-none mt-2 md:mt-0 tracking-widest">Excellence</span>
               </div>
-            </a>
-          ))}
+            </motion.h1>
+
+            <motion.p variants={itemVars} className="text-xl text-slate-200 mb-12 max-w-2xl font-light border-l border-blue-600/30 pl-8 leading-relaxed">
+              High-performance building automation, thermal barriers, and strategic supply for Saudi Arabia's infrastructure.
+            </motion.p>
+
+            <motion.div variants={itemVars} className="flex flex-wrap gap-6">
+              <a href="#/divisions" className="group relative px-12 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] rounded-sm overflow-hidden transition-all hover:shadow-[0_0_40px_rgba(0,112,255,0.5)] active:scale-95">
+                <span className="relative z-10">Divisions</span>
+                <div className="absolute inset-0 bg-white/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+              </a>
+              <a href="#/contact" className="px-12 py-5 bg-white/10 border border-white/20 text-white font-black uppercase tracking-[0.2em] rounded-sm hover:bg-blue-600 hover:border-blue-600 transition-all active:scale-95">
+                Contact and Inquire
+              </a>
+            </motion.div>
+          </motion.div>
         </div>
-      </div>
-    </section>
-  </div>
-);
+
+        {/* Scroll Hint */}
+        <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4 group cursor-pointer" onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth'})}>
+          <span className="text-[10px] font-black uppercase tracking-[0.5em] text-white/60 group-hover:text-blue-400 transition-colors">Discover Operations</span>
+          <div className="animate-bounce-subtle flex flex-col items-center">
+            <div className="w-5 h-5 border-b-2 border-r-2 border-blue-500 rotate-45 mb-[-10px]"></div>
+            <div className="w-5 h-5 border-b-2 border-r-2 border-blue-500/50 rotate-45"></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-32 relative">
+        <div className="container mx-auto px-6">
+          <div className="flex items-end justify-between mb-24">
+            <h2 className="text-4xl font-black uppercase tracking-tighter text-glow-blue font-majestic">Segments</h2>
+            <span className="text-[10px] font-black text-blue-600/50 uppercase tracking-[0.4em]">Vertical Units Active</span>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2">
+            {DIVISIONS.map(div => (
+              <a key={div.id} href="#/divisions" className="group relative block aspect-[4/5] bg-slate-900 overflow-hidden border border-white/5">
+                <img src={div.image} className="w-full h-full object-cover grayscale opacity-30 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-1000 ease-out" alt={div.title} />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent group-hover:via-blue-950/20 transition-all duration-700"></div>
+                <div className="absolute bottom-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  <div className="text-blue-500 text-[10px] font-black mb-4 tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity">{div.id}</div>
+                  <h3 className="text-xl font-bold uppercase tracking-tighter group-hover:text-glow-blue transition-all">{div.title}</h3>
+                  <div className="w-0 group-hover:w-full h-[1px] bg-blue-600 mt-4 transition-all duration-700"></div>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
 
 const About = () => (
-  <div className="pt-48 pb-32 bg-black min-h-screen">
+  <div className="pt-48 pb-32 bg-black min-h-screen animate-in fade-in duration-700">
     <div className="container mx-auto px-6">
       <BackLink />
       <h1 className="text-7xl font-black mb-12 uppercase tracking-tighter text-glow-blue font-majestic">Intelligence</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
-        <div className="animate-in slide-in-from-left duration-700">
+        <div>
           <p className="text-2xl text-blue-400 font-light leading-relaxed mb-12">
-            Established in 2005, BGATE is built on a foundation of engineering excellence and technical integrity.
+            BGATE is built on a foundation of engineering excellence and technical integrity, established in 2005.
           </p>
           <div className="space-y-8 text-slate-400 text-lg leading-relaxed font-light">
             <p>Our mission is to provide unparalleled services to the Air-Conditioning, Refrigeration, and Safety industries through complete engineering solutions.</p>
-            <p>Since its inception, BGATE has become synonymous with quality and timely performance across the Kingdom.</p>
-          </div>
-
-          <div className="mt-20 space-y-12">
-            <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-500 border-b border-white/10 pb-4">Network Distribution Partners</h3>
-            {PARTNERS.map(p => (
-              <div key={p.name} className="group border-l border-white/10 pl-8 hover:border-blue-600 transition-colors">
-                <h4 className="text-2xl font-bold font-majestic text-white group-hover:text-blue-500 transition-colors">{p.name} <span className="text-xs font-light text-slate-500 uppercase tracking-widest">[{p.origin}]</span></h4>
-                <p className="text-slate-400 text-sm mt-2 leading-relaxed">{p.description}</p>
-              </div>
-            ))}
+            <p>Since its inception, BGATE has become synonymous with quality and timely performance across the Kingdom, partnering with leaders like SAUTER and SIEMENS.</p>
           </div>
         </div>
         <div className="border border-white/10 p-1 bg-slate-900/50 relative overflow-hidden group h-fit">
@@ -227,16 +235,16 @@ const About = () => (
 );
 
 const Divisions = () => (
-  <div className="pt-48 pb-32 bg-black min-h-screen">
+  <div className="pt-48 pb-32 bg-black min-h-screen animate-in fade-in duration-700">
     <div className="container mx-auto px-6">
       <BackLink />
       <h1 className="text-7xl font-black mb-24 uppercase tracking-tighter text-glow-blue font-majestic">Operational Units</h1>
-      <div className="space-y-32">
+      <div className="space-y-48">
         {DIVISIONS.map((div, i) => (
-          <div key={div.id} className={`flex flex-col gap-12 ${i % 2 !== 0 ? 'lg:items-end' : ''}`}>
-            <div className={`flex flex-col lg:flex-row gap-20 items-start ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
+          <div key={div.id} className="flex flex-col gap-12">
+            <div className={`flex flex-col lg:flex-row gap-20 items-center ${i % 2 !== 0 ? 'lg:flex-row-reverse' : ''}`}>
               <div className="flex-1 group relative overflow-hidden border border-white/5 bg-slate-900 w-full">
-                <img src={div.image} className="w-full h-[500px] object-cover rounded-sm grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" alt={div.title} />
+                <img src={div.image} className="w-full h-[550px] object-cover rounded-sm grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" alt={div.title} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60"></div>
               </div>
               <div className="flex-1">
@@ -246,39 +254,20 @@ const Divisions = () => (
               </div>
             </div>
             
-            {/* Extended Detail Grid for Control Division */}
             {div.details && (
-              <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 border-t border-white/5 pt-16">
-                <div className="space-y-6">
-                  <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Products & Systems</h4>
-                  <ul className="grid grid-cols-1 gap-3">
-                    {div.details.products.map(item => (
-                      <li key={item} className="text-slate-300 text-xs font-bold uppercase tracking-widest flex items-center gap-3">
-                        <span className="w-1.5 h-1.5 bg-blue-600"></span> {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="space-y-6">
-                  <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Operational Applications</h4>
-                  <ul className="grid grid-cols-1 gap-3">
-                    {div.details.applications.map(item => (
-                      <li key={item} className="text-slate-300 text-xs font-bold uppercase tracking-widest flex items-center gap-3">
-                        <span className="w-1.5 h-1.5 bg-slate-700"></span> {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="space-y-6">
-                  <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em] mb-4">Engineering Services</h4>
-                  <ul className="grid grid-cols-1 gap-3">
-                    {div.details.services.map(item => (
-                      <li key={item} className="text-slate-300 text-xs font-bold uppercase tracking-widest flex items-center gap-3">
-                        <span className="w-1.5 h-1.5 border border-blue-500/50"></span> {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mt-4 p-12 bg-white/5 border border-white/10 rounded-sm">
+                {div.details.map((section, sIndex) => (
+                  <div key={section.label} className="space-y-6">
+                    <h4 className="text-blue-500 font-black text-[10px] uppercase tracking-[0.4em] mb-4 border-b border-white/10 pb-4">{section.label}</h4>
+                    <ul className="grid grid-cols-1 gap-3">
+                      {section.items.map(item => (
+                        <li key={item} className="text-slate-300 text-xs font-bold uppercase tracking-widest flex items-center gap-3">
+                          <span className={`w-1.5 h-1.5 ${sIndex === 0 ? 'bg-blue-600' : 'bg-slate-700'}`}></span> {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             )}
           </div>
@@ -296,7 +285,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="pt-48 pb-32 bg-black min-h-screen">
+    <div className="pt-48 pb-32 bg-black min-h-screen animate-in fade-in duration-700">
       <div className="container mx-auto px-6">
         <BackLink />
         <h1 className="text-7xl font-black mb-24 uppercase tracking-tighter text-glow-blue font-majestic">Global Network</h1>
@@ -304,30 +293,16 @@ const Contact = () => {
           <div className="bg-white/5 p-12 border border-white/10 backdrop-blur-md relative overflow-hidden">
             <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/10 blur-3xl"></div>
             {status === 'success' ? (
-              <div className="text-center py-20 animate-in zoom-in duration-500">
-                <div className="w-20 h-20 bg-blue-600 rounded-full mx-auto mb-8 flex items-center justify-center shadow-[0_0_40px_rgba(0,112,255,0.4)]">
-                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
+              <div className="text-center py-20">
                 <h2 className="text-3xl font-bold text-blue-500 mb-4 uppercase tracking-widest font-majestic">Transferred</h2>
                 <p className="text-slate-400 uppercase text-xs tracking-widest">Our engineers will contact you shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Identification</label>
-                  <input required className="w-full bg-black/50 border-b border-white/20 p-4 outline-none focus:border-blue-600 text-white transition-all" placeholder="NAME / COMPANY" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Node Address</label>
-                  <input required type="email" className="w-full bg-black/50 border-b border-white/20 p-4 outline-none focus:border-blue-600 text-white transition-all" placeholder="EMAIL" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-black text-blue-500 uppercase tracking-widest">Inquiry Data</label>
-                  <textarea required rows={4} className="w-full bg-black/50 border-b border-white/20 p-4 outline-none focus:border-blue-600 text-white resize-none transition-all" placeholder="DESCRIBE YOUR PROJECT REQUIREMENTS..."></textarea>
-                </div>
-                <button className="w-full py-5 bg-blue-600 text-white font-black uppercase tracking-widest shadow-lg hover:shadow-[0_0_30px_rgba(0,112,255,0.4)] transition-all">Submit Transmission</button>
+                <input required className="w-full bg-black/50 border-b border-white/20 p-4 outline-none focus:border-blue-600 text-white transition-all" placeholder="NAME / COMPANY" />
+                <input required type="email" className="w-full bg-black/50 border-b border-white/20 p-4 outline-none focus:border-blue-600 text-white transition-all" placeholder="EMAIL" />
+                <textarea required rows={4} className="w-full bg-black/50 border-b border-white/20 p-4 outline-none focus:border-blue-600 text-white resize-none transition-all" placeholder="INQUIRY DETAILS..."></textarea>
+                <button className="w-full py-5 bg-blue-600 text-white font-black uppercase tracking-widest shadow-lg hover:bg-blue-500 transition-all active:scale-95">Submit Transmission</button>
               </form>
             )}
           </div>
@@ -352,11 +327,6 @@ const Footer = () => (
     <div className="container mx-auto px-6">
       <h3 className="text-2xl font-black text-glow-blue mb-4 tracking-tighter">{BRAND_NAME}</h3>
       <p className="text-[10px] text-slate-600 uppercase tracking-[0.5em] mb-4">© {new Date().getFullYear()} {COMPANY_NAME}</p>
-      <div className="flex justify-center gap-10 mt-10 text-[9px] font-black uppercase tracking-widest text-slate-700">
-        <a href="#" className="hover:text-blue-500 transition-colors">Legal & Compliance</a>
-        <a href="#" className="hover:text-blue-500 transition-colors">Privacy Protocol</a>
-        <a href="#" className="hover:text-blue-500 transition-colors">HSE Statement</a>
-      </div>
     </div>
   </footer>
 );
@@ -385,9 +355,13 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col scanlines">
+    <div className="min-h-screen flex flex-col scanlines selection:bg-blue-600 selection:text-white">
       <Header />
-      <main className="flex-grow">{render()}</main>
+      <AnimatePresence mode="wait">
+        <main key={path} className="flex-grow">
+          {render()}
+        </main>
+      </AnimatePresence>
       <Footer />
     </div>
   );
