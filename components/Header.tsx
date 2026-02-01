@@ -34,12 +34,12 @@ const Header: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
-        isScrolled ? 'bg-black/80 backdrop-blur-xl border-white/10 py-4' : 'bg-transparent border-transparent py-8'
+        isScrolled ? 'bg-black/90 backdrop-blur-xl border-white/10 py-4' : 'bg-transparent border-transparent py-8'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         <a href="#/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-blue-600 rounded-sm flex items-center justify-center text-white font-bold text-xl shadow-[0_0_15px_rgba(0,112,255,0.5)] transition-transform group-hover:scale-110">
+          <div className="w-10 h-10 bg-blue-600 rounded-sm flex items-center justify-center text-white font-bold text-xl shadow-[0_0_15px_rgba(0,112,255,0.5)] transition-all group-hover:scale-105 active:scale-95">
             B
           </div>
           <span className="text-2xl font-bold tracking-tighter text-glow-blue uppercase">
@@ -47,25 +47,25 @@ const Header: React.FC = () => {
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-4">
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
-              className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 transition-colors"
+              className="px-5 py-3 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 hover:bg-white/5 rounded-sm transition-all active:scale-95"
             >
               {item.label}
             </a>
           ))}
           <a
             href="#/contact"
-            className="text-xs font-bold uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 transition-colors"
+            className="px-5 py-3 text-[11px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 hover:bg-white/5 rounded-sm transition-all active:scale-95"
           >
             Network
           </a>
           <button
             onClick={scrollToInquiry}
-            className="px-6 py-2.5 bg-blue-600/10 border border-blue-500/50 text-blue-400 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-[0_0_20px_rgba(0,112,255,0.1)]"
+            className="ml-4 px-8 py-3 bg-blue-600 text-white rounded-sm font-bold text-[11px] uppercase tracking-widest hover:bg-blue-500 transition-all shadow-[0_0_20px_rgba(0,112,255,0.2)] active:scale-95"
           >
             Inquiry
           </button>

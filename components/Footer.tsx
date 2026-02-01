@@ -12,7 +12,7 @@ const Footer: React.FC = () => {
               {COMPANY_NAME}
             </p>
             <p className="text-slate-600 mt-6 text-sm max-w-md">
-              A strategic infrastructure node established in 2005. Engineering high-performance solutions for Saudi Arabia's industrial future.
+              A strategic infrastructure hub established in 2005. Engineering high-performance solutions for Saudi Arabia's industrial future.
             </p>
           </div>
           
@@ -30,8 +30,8 @@ const Footer: React.FC = () => {
             <h4 className="text-[10px] font-black mb-8 uppercase tracking-[0.4em] text-blue-500">HQ Protocol</h4>
             <address className="not-italic text-xs font-bold uppercase tracking-widest text-slate-400 space-y-4">
               <p className="leading-relaxed">{MAIN_OFFICE.address}</p>
-              <p className="text-blue-400">{MAIN_OFFICE.phone[0]}</p>
-              <p className="text-blue-400">{MAIN_OFFICE.emails[0]}</p>
+              <p className="text-blue-400 font-bold">{MAIN_OFFICE.phone[0]}</p>
+              <p className="text-blue-400 font-bold">{MAIN_OFFICE.emails[0]}</p>
             </address>
           </div>
         </div>
@@ -39,8 +39,8 @@ const Footer: React.FC = () => {
         <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold uppercase tracking-[0.3em] text-slate-600">
           <p>© {new Date().getFullYear()} BGATE CORE. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-10 mt-6 md:mt-0">
-            <a href="#" className="hover:text-white">Legal Matrix</a>
-            <a href="#" className="hover:text-white">Privacy Protocol</a>
+            <a href="#" className="hover:text-white transition-colors">Legal Protocol</a>
+            <a href="#" className="hover:text-white transition-colors">Privacy Statement</a>
           </div>
         </div>
       </div>
