@@ -31,11 +31,18 @@ const DIVISIONS = [
     title: 'Safety Equipment',
     tagline: 'HSE & Workforce Protection',
     description: 'Leading provider of certified Personal Protection Equipment (PPE). Securing industrial workforces with high-quality safety ecosystems.',
-    image: 'https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1591955506264-3f5a6834570a?auto=format&fit=crop&q=80&w=1200'
   }
 ];
 
 // --- Components ---
+
+const BackLink = () => (
+  <a href="#/" className="inline-flex items-center gap-2 text-blue-500 hover:text-white transition-colors mb-12 group">
+    <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span>
+    <span className="text-[10px] font-black uppercase tracking-[0.4em]">Back to Core</span>
+  </a>
+);
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -60,9 +67,9 @@ const Header = () => {
           <a href="#/about" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 transition-colors">Intelligence</a>
           <a href="#/divisions" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 transition-colors">Divisions</a>
           <a href="#/contact" className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 hover:text-blue-500 transition-colors">Network</a>
-          <button className="px-6 py-2 bg-blue-600/10 border border-blue-500/50 text-blue-400 rounded-sm font-bold text-[10px] uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all">
+          <a href="#/contact" className="px-6 py-2 bg-blue-600/10 border border-blue-500/50 text-blue-400 rounded-sm font-bold text-[10px] uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all">
             Inquiry
-          </button>
+          </a>
         </nav>
       </div>
     </header>
@@ -75,7 +82,7 @@ const Home = () => (
       <div className="absolute inset-0 z-0">
         <img 
           src="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&q=80&w=2000" 
-          className="w-full h-full object-cover brightness-[0.2] contrast-[1.2]"
+          className="w-full h-full object-cover brightness-[0.12] contrast-[1.2] opacity-80"
           alt="Industrial"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
@@ -88,13 +95,19 @@ const Home = () => (
           </div>
           <h1 className="font-black tracking-tighter uppercase text-glow-blue font-majestic mb-8">
             <span className="text-7xl md:text-[10rem] leading-[0.85] block">{BRAND_NAME}</span>
-            <span className="text-blue-600 italic text-2xl md:text-5xl mt-4 block">Industrial Excellence</span>
+            <span className="text-blue-600 italic text-2xl md:text-5xl mt-4 block leading-none tracking-widest">Industrial</span>
+            <span className="text-blue-600 italic text-2xl md:text-5xl block leading-none mt-2 tracking-widest">Excellence</span>
           </h1>
           <p className="text-xl text-slate-400 mb-12 max-w-2xl font-light">
             Precision automation, thermal barriers, and strategic supply for Saudi Arabia's infrastructure.
           </p>
-          <div className="flex gap-6">
-            <a href="#/contact" className="px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] rounded-sm shadow-[0_0_40px_rgba(0,112,255,0.4)]">Get Started</a>
+          <div className="flex flex-wrap gap-6">
+            <a href="#/divisions" className="px-10 py-5 bg-blue-600 text-white font-black uppercase tracking-[0.2em] rounded-sm shadow-[0_0_40px_rgba(0,112,255,0.4)] hover:bg-blue-700 transition-all">
+              Divisions
+            </a>
+            <a href="#/contact" className="px-10 py-5 bg-white/5 border border-white/20 text-white font-black uppercase tracking-[0.2em] rounded-sm hover:bg-white/10 transition-all">
+              Contact and Inquire
+            </a>
           </div>
         </div>
       </div>
@@ -123,6 +136,7 @@ const Home = () => (
 const About = () => (
   <div className="pt-48 pb-32 bg-black min-h-screen">
     <div className="container mx-auto px-6">
+      <BackLink />
       <h1 className="text-7xl font-black mb-12 uppercase tracking-tighter text-glow-blue font-majestic">Intelligence</h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-20">
         <div>
@@ -145,6 +159,7 @@ const About = () => (
 const Divisions = () => (
   <div className="pt-48 pb-32 bg-black min-h-screen">
     <div className="container mx-auto px-6">
+      <BackLink />
       <h1 className="text-7xl font-black mb-24 uppercase tracking-tighter text-glow-blue font-majestic">Operational Units</h1>
       <div className="space-y-32">
         {DIVISIONS.map((div, i) => (
@@ -174,13 +189,14 @@ const Contact = () => {
   return (
     <div className="pt-48 pb-32 bg-black min-h-screen">
       <div className="container mx-auto px-6">
+        <BackLink />
         <h1 className="text-7xl font-black mb-24 uppercase tracking-tighter text-glow-blue font-majestic">Network</h1>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-24">
           <div className="bg-white/5 p-12 border border-white/10">
             {status === 'success' ? (
               <div className="text-center py-20">
-                <h2 className="text-3xl font-bold text-blue-500 mb-4">TRANSFERRED</h2>
-                <p className="text-slate-400">Our engineers will contact you shortly.</p>
+                <h2 className="text-3xl font-bold text-blue-500 mb-4 uppercase tracking-widest font-majestic">Transferred</h2>
+                <p className="text-slate-400 uppercase text-xs tracking-widest">Our engineers will contact you shortly.</p>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-8">
@@ -222,7 +238,10 @@ const App: React.FC = () => {
   const [path, setPath] = useState(window.location.hash || '#/');
 
   useEffect(() => {
-    const handleHash = () => setPath(window.location.hash || '#/');
+    const handleHash = () => {
+      setPath(window.location.hash || '#/');
+      window.scrollTo(0, 0); // Ensure page starts at top on nav
+    };
     window.addEventListener('hashchange', handleHash);
     return () => window.removeEventListener('hashchange', handleHash);
   }, []);
