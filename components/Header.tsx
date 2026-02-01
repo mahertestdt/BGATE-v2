@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { NavItem } from '../types.ts';
 import { BRAND_NAME } from '../constants.tsx';
+import Logo from './Logo.tsx';
 
 const navItems: NavItem[] = [
   { label: 'Intelligence', href: '#/about' },
@@ -9,10 +10,10 @@ const navItems: NavItem[] = [
 ];
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = React.useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -34,17 +35,20 @@ const Header: React.FC = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${
-        isScrolled ? 'bg-black/90 backdrop-blur-xl border-white/10 py-4' : 'bg-transparent border-transparent py-8'
+        isScrolled ? 'bg-black/90 backdrop-blur-xl border-white/10 py-3' : 'bg-transparent border-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <a href="#/" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 bg-blue-600 rounded-sm flex items-center justify-center text-white font-bold text-xl shadow-[0_0_15px_rgba(0,112,255,0.5)] transition-all group-hover:scale-105 active:scale-95">
-            B
+        <a href="#/" className="flex items-center gap-4 group">
+          <Logo className={isScrolled ? "h-10" : "h-14"} />
+          <div className="flex flex-col">
+            <span className="text-xl md:text-2xl font-bold tracking-tighter text-glow-blue uppercase leading-none">
+              {BRAND_NAME}
+            </span>
+            <span className="text-[8px] tracking-[0.3em] text-blue-500 font-black uppercase mt-1 opacity-70">
+              Contracting Co.
+            </span>
           </div>
-          <span className="text-2xl font-bold tracking-tighter text-glow-blue uppercase">
-            {BRAND_NAME}
-          </span>
         </a>
 
         <nav className="hidden md:flex items-center gap-4">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { BRAND_NAME, COMPANY_NAME, MAIN_OFFICE } from '../constants.tsx';
+import Logo from './Logo.tsx';
 
 const Footer: React.FC = () => {
   return (
@@ -7,11 +8,17 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-20 mb-24">
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-3xl font-bold mb-8 text-glow-blue uppercase tracking-tighter">{BRAND_NAME}</h3>
+            <div className="flex items-center gap-6 mb-8">
+              <Logo className="h-16" showText={false} />
+              <div>
+                <h3 className="text-3xl font-bold text-glow-blue uppercase tracking-tighter leading-none">{BRAND_NAME}</h3>
+                <p className="text-[10px] text-blue-500 font-black uppercase tracking-[0.4em] mt-2">Engineering Hub</p>
+              </div>
+            </div>
             <p className="text-slate-500 max-w-sm leading-relaxed text-sm font-medium uppercase tracking-wider">
               {COMPANY_NAME}
             </p>
-            <p className="text-slate-600 mt-6 text-sm max-w-md">
+            <p className="text-slate-600 mt-6 text-sm max-w-md italic">
               A strategic infrastructure hub established in 2005. Engineering high-performance solutions for Saudi Arabia's industrial future.
             </p>
           </div>

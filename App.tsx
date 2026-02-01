@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { AnimatePresence } from 'framer-motion';
+import React from 'react';
+import * as FramerMotion from 'framer-motion';
 import Layout from './components/Layout.tsx';
 import Home from './pages/Home.tsx';
 import About from './pages/About.tsx';
@@ -8,12 +8,11 @@ import Contact from './pages/Contact.tsx';
 import Catalog from './pages/Catalog.tsx';
 
 const App: React.FC = () => {
-  const [path, setPath] = useState(window.location.hash || '#/');
+  const [path, setPath] = React.useState(window.location.hash || '#/');
 
-  useEffect(() => {
+  React.useEffect(() => {
     const handleHash = () => {
       setPath(window.location.hash || '#/');
-      // Smooth scroll to top on every navigation
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
     window.addEventListener('hashchange', handleHash);
@@ -21,7 +20,6 @@ const App: React.FC = () => {
   }, []);
 
   const renderContent = () => {
-    // Basic Hash Router logic
     if (path.startsWith('#/about')) return <About />;
     if (path.startsWith('#/divisions')) return <Divisions />;
     if (path.startsWith('#/contact')) return <Contact />;
@@ -31,11 +29,17 @@ const App: React.FC = () => {
 
   return (
     <Layout showInquiry={!path.includes('contact')}>
-      <AnimatePresence mode="wait">
-        <div key={path}>
+      <FramerMotion.AnimatePresence mode="wait">
+        <FramerMotion.motion.div 
+          key={path}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           {renderContent()}
-        </div>
-      </AnimatePresence>
+        </FramerMotion.motion.div>
+      </FramerMotion.AnimatePresence>
     </Layout>
   );
 };

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const QuickInquiry: React.FC = () => {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   
   const FORMSPREE_URL = "https://formspree.io/f/xgozenab";
 

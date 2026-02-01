@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { MAIN_OFFICE, JUBAIL_BRANCH } from '../constants.tsx';
 
 const Contact: React.FC = () => {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+  const [status, setStatus] = React.useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const FORMSPREE_URL = "https://formspree.io/f/xgozenab";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {

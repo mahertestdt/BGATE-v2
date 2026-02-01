@@ -1,6 +1,6 @@
 import React from 'react';
-import { DIVISIONS, PARTNERS, BRAND_NAME } from '../constants.tsx';
-import { motion, Variants } from 'framer-motion';
+import { DIVISIONS, BRAND_NAME } from '../constants.tsx';
+import * as FramerMotion from 'framer-motion';
 
 const Home: React.FC = () => {
   const scrollToEnquiry = (e: React.MouseEvent) => {
@@ -8,7 +8,7 @@ const Home: React.FC = () => {
     document.getElementById('enquiry-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const containerVariants: Variants = {
+  const containerVariants: FramerMotion.Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
     }
   };
 
-  const itemVariants: Variants = {
+  const itemVariants: FramerMotion.Variants = {
     hidden: { opacity: 0, y: 40 },
     visible: { 
       opacity: 1, 
@@ -41,18 +41,18 @@ const Home: React.FC = () => {
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
-          <motion.div 
+          <FramerMotion.motion.div 
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="max-w-5xl"
           >
-            <motion.div variants={itemVariants} className="inline-flex items-center gap-4 mb-8">
+            <FramerMotion.motion.div variants={itemVariants} className="inline-flex items-center gap-4 mb-8">
               <span className="w-12 h-[2px] bg-blue-600 shadow-[0_0_10px_rgba(0,112,255,1)]"></span>
               <span className="text-[10px] font-black uppercase tracking-[0.5em] text-blue-500">Established 2005</span>
-            </motion.div>
+            </FramerMotion.motion.div>
             
-            <motion.h1 variants={itemVariants} className="flex flex-col font-black tracking-tighter uppercase text-glow-blue font-majestic mb-10">
+            <FramerMotion.motion.h1 variants={itemVariants} className="flex flex-col font-black tracking-tighter uppercase text-glow-blue font-majestic mb-10">
               <span className="text-7xl md:text-[10rem] lg:text-[11rem] leading-[0.8] block">
                 {BRAND_NAME}
               </span>
@@ -64,13 +64,13 @@ const Home: React.FC = () => {
                   Excellence
                 </span>
               </span>
-            </motion.h1>
+            </FramerMotion.motion.h1>
 
-            <motion.p variants={itemVariants} className="text-xl md:text-2xl text-slate-200 mb-14 leading-relaxed max-w-2xl font-light border-l border-blue-600/30 pl-8">
+            <FramerMotion.motion.p variants={itemVariants} className="text-xl md:text-2xl text-slate-200 mb-14 leading-relaxed max-w-2xl font-light border-l border-blue-600/30 pl-8">
               Pioneering high-performance building automation, thermal insulation solutions, and strategic industrial supply for Saudi Arabia's infrastructure.
-            </motion.p>
+            </FramerMotion.motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6">
+            <FramerMotion.motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6">
               <button 
                 onClick={scrollToEnquiry}
                 className="px-14 py-6 bg-blue-600 hover:bg-blue-500 text-white font-black uppercase tracking-[0.25em] rounded-sm shadow-[0_0_40px_rgba(0,112,255,0.4)] transition-all active:scale-95"
@@ -86,8 +86,8 @@ const Home: React.FC = () => {
               >
                 Divisions
               </button>
-            </motion.div>
-          </motion.div>
+            </FramerMotion.motion.div>
+          </FramerMotion.motion.div>
         </div>
 
         <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4 group cursor-pointer" onClick={() => document.getElementById('divisions-grid')?.scrollIntoView({ behavior: 'smooth'})}>
