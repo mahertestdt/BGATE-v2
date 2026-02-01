@@ -23,7 +23,7 @@ const Contact: React.FC = () => {
             {/* Contact Form */}
             <div id="enquiry-section" className="bg-white/5 p-12 border border-white/10 rounded-sm relative overflow-hidden scroll-mt-32">
               <div className="absolute top-0 right-0 w-24 h-24 bg-blue-600/10 blur-3xl"></div>
-              <h2 className="text-3xl font-bold mb-12 uppercase tracking-tighter font-majestic">Transmission Terminal</h2>
+              <h2 className="text-3xl font-bold mb-12 uppercase tracking-tighter font-majestic">Inquiry Center</h2>
               <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div className="space-y-4">

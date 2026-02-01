@@ -27,20 +27,25 @@ const Home: React.FC = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="max-w-4xl"
+            className="max-w-5xl"
           >
-            <div className="inline-flex items-center gap-4 mb-8">
+            <div className="inline-flex items-center gap-4 mb-6">
               <span className="w-12 h-[2px] bg-blue-600"></span>
               <span className="text-xs font-black uppercase tracking-[0.5em] text-blue-500">Established 2005</span>
             </div>
             
-            <h1 className="flex flex-col font-black tracking-tighter uppercase text-glow-blue font-majestic mb-12">
-              <span className="text-7xl md:text-[10rem] leading-[0.85] block">
+            <h1 className="flex flex-col font-black tracking-tighter uppercase text-glow-blue font-majestic mb-8">
+              <span className="text-7xl md:text-[10rem] lg:text-[11rem] leading-[0.85] block">
                 {BRAND_NAME}
               </span>
-              <span className="text-blue-600 italic text-2xl md:text-5xl tracking-[0.2em] md:tracking-[0.4em] leading-none mt-2 md:mt-4 block transform -translate-y-1">
-                Industrial Excellence
-              </span>
+              <div className="flex flex-col mt-2 md:mt-4">
+                <span className="text-blue-600 italic text-xl md:text-4xl lg:text-5xl tracking-[0.1em] md:tracking-[0.3em] leading-none block">
+                  Industrial
+                </span>
+                <span className="text-blue-600 italic text-xl md:text-4xl lg:text-5xl tracking-[0.1em] md:tracking-[0.3em] leading-none block mt-1 md:mt-2">
+                  Excellence
+                </span>
+              </div>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-400 mb-12 leading-relaxed max-w-2xl font-light">
@@ -51,7 +56,7 @@ const Home: React.FC = () => {
                 onClick={scrollToEnquiry}
                 className="px-10 py-5 bg-blue-600 hover:bg-blue-700 text-white font-black uppercase tracking-[0.2em] rounded-sm shadow-[0_0_40px_rgba(0,112,255,0.4)] transition-all"
               >
-                Inquiry Terminal
+                Quick Inquiry
               </button>
               <button 
                 onClick={(e) => {

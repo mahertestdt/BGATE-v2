@@ -21,7 +21,7 @@ const Header: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToTerminal = (e: React.MouseEvent) => {
+  const scrollToInquiry = (e: React.MouseEvent) => {
     e.preventDefault();
     const element = document.getElementById('enquiry-section');
     if (element) {
@@ -67,10 +67,10 @@ const Header: React.FC = () => {
             Network
           </a>
           <button
-            onClick={scrollToTerminal}
+            onClick={scrollToInquiry}
             className="px-6 py-2.5 bg-blue-600/10 border border-blue-500/50 text-blue-400 rounded-sm font-bold text-xs uppercase tracking-widest hover:bg-blue-600 hover:text-white transition-all shadow-[0_0_20px_rgba(0,112,255,0.1)]"
           >
-            Terminal
+            Inquiry
           </button>
         </nav>
 
@@ -107,10 +107,10 @@ const Header: React.FC = () => {
               Network
             </a>
             <button
-              onClick={scrollToTerminal}
+              onClick={scrollToInquiry}
               className="py-5 bg-blue-600 text-white font-bold uppercase tracking-widest"
             >
-              Access Terminal
+              Direct Inquiry
             </button>
           </div>
         </div>
