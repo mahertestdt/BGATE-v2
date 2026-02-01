@@ -53,21 +53,31 @@ export const DIVISIONS: DivisionExtended[] = [
     image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1470&auto=format&fit=crop',
     details: [
       {
-        label: "Provision Scope",
+        label: "Division Provides",
         items: [
-          "Pipe work insulation", "Cladding Services", "Thermal/Cold insulation installation", 
-          "Protection for Pipe work & Fittings", "Vessels and Boilers", 
+          "Pipe work insulation", 
+          "Cladding Services", 
+          "Complete range of Thermal/Cold insulation", 
+          "Protection for Pipe work and Fittings", 
+          "Vessels and Boilers", 
           "Duct work and Tanks in High/Low Temperatures", 
-          "Heating and Ventilation Insulation", "Custom/Standard Removable Blankets", 
+          "Heating and Ventilation Insulation",
+          "Removable, Reusable Insulation Blankets", 
           "Scaffolding services"
         ]
       },
       {
-        label: "Operational Sectors",
+        label: "Our Customers",
         items: [
-          "Petrochemical plants", "Oil Refineries", "Natural Gas Compressor stations", 
-          "Electrical Power Plants", "Equipment manufacturers", "Work Boats", 
-          "Hospitals", "Universities", "High rise Buildings"
+          "Petrochemical plants", 
+          "Oil Refineries", 
+          "Natural Gas Compressor stations", 
+          "Electrical Power Plants", 
+          "Equipment manufacturers", 
+          "Work Boats", 
+          "Hospitals", 
+          "Universities", 
+          "High rise Buildings"
         ]
       }
     ]
@@ -92,22 +102,17 @@ export const PARTNERS: Partner[] = [
   {
     name: 'SAUTER',
     origin: 'Switzerland',
-    description: 'A European leader in Building Automation, HVAC DDC, BMS, and Control Valves. With over 100 years of experience, SAUTER is a leading Swiss provider of energy-efficient building management solutions.'
+    description: 'A European leader in Building Automation, HVAC DDC, BMS, and Control Valves.'
   },
   {
     name: 'SIEMENS',
     origin: 'Germany',
-    description: 'Global standard for building technology. Siemens offers comprehensive automation systems and HVAC products for energy savings and failure security in cooling and ventilation applications.'
+    description: 'Global standard for building technology and energy-efficient automation.'
   },
   {
     name: 'TITUS',
     origin: 'USA',
-    description: 'World leader in air distribution and VAV terminal units, optimizing indoor environmental quality.'
-  },
-  {
-    name: 'UNITED ENERTECH',
-    origin: 'USA',
-    description: 'Specialists in blast dampers and smoke protection systems for industrial facilities.'
+    description: 'World leader in air distribution and environmental terminal units.'
   }
 ];
 
@@ -115,14 +120,6 @@ export const TRADING_CATALOG: ProductItem[] = [
   {
     category: 'HVAC Systems',
     items: ['Cooling Equipment', 'Consumables', 'Humidifiers', 'Heat Exchangers']
-  },
-  {
-    category: 'Flow Control',
-    items: ['Gate & Globe Valves', 'Pressure Relief Valves', 'SS Pipes', 'Expansion Joints']
-  },
-  {
-    category: 'Insulation',
-    items: ['Saudi Rockwool Board', 'Duct Wrap', 'Polyurethane Board', 'Insulation Blankets']
   }
 ];
 
@@ -130,9 +127,9 @@ export const MAIN_OFFICE: ContactInfo = {
   address: 'King Khalid Street, Dammam',
   pobox: 'P.O. Box No. 35449, Dammam - 31488, KSA',
   city: 'Dammam',
-  phone: ['+966 3 833 4699', '+966 3 832 0193'],
+  phone: ['+966 3 833 4699'],
   fax: '+966 3 834 9729',
-  emails: ['mail@bgate-sa.com', 'sales@bgate-sa.com'],
+  emails: ['mail@bgate-sa.com'],
   website: ['www.bgate-sa.com']
 };
 
