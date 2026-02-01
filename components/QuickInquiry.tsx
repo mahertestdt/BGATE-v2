@@ -1,10 +1,8 @@
-
 import React, { useState } from 'react';
 
 const QuickInquiry: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   
-  // LIVE FORMSPREE ENDPOINT
   const FORMSPREE_URL = "https://formspree.io/f/xgozenab";
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -46,7 +44,7 @@ const QuickInquiry: React.FC = () => {
               </svg>
             </div>
             <h2 className="text-4xl font-black mb-4 uppercase tracking-tighter text-glow-blue font-majestic">Transmission Success</h2>
-            <p className="text-slate-400 uppercase tracking-[0.2em] text-sm mb-10">Inquiry Logged into BGATE Core Systems</p>
+            <p className="text-slate-400 uppercase tracking-[0.2em] text-sm mb-10">Inquiry Logged into Hub Systems</p>
             <button 
               onClick={() => setStatus('idle')}
               className="text-blue-500 font-black text-xs uppercase tracking-[0.4em] hover:text-white transition-colors"
@@ -70,7 +68,7 @@ const QuickInquiry: React.FC = () => {
             <div className="lg:col-span-4">
               <h2 className="text-4xl font-bold mb-6 text-glow-blue font-majestic uppercase tracking-tighter">Direct <br/> Inquiry</h2>
               <p className="text-slate-400 text-lg mb-8 leading-relaxed">
-                Connect with the engineering matrix. Our consultants are standing by for project validation and technical support.
+                Connect with our technical infrastructure. Our consultants are standing by for project validation and technical support.
               </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-widest text-slate-500">
@@ -97,7 +95,7 @@ const QuickInquiry: React.FC = () => {
                     />
                   </div>
                   <div className="relative group">
-                    <label className="block text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 mb-4">Data Destination</label>
+                    <label className="block text-[10px] font-black uppercase tracking-[0.3em] text-blue-500 mb-4">Node Address</label>
                     <input 
                       required
                       name="email"

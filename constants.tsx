@@ -9,28 +9,28 @@ export const DIVISIONS: Division[] = [
     title: 'Control Division',
     tagline: 'Precision Automation & BMS',
     description: 'Engineering sophisticated Building Automation and Energy Management Systems (BMS & DDC). We design and assemble high-performance control panels for mission-critical infrastructure.',
-    image: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1470&auto=format&fit=crop'
   },
   {
     id: 'insulation',
     title: 'Industrial Insulation',
     tagline: 'Thermal & Acoustic Solutions',
     description: 'Premier supplier of high-performance Saudi Rockwool and polyurethane systems. We provide critical thermal barriers for extreme industrial environments across the Kingdom.',
-    image: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1470&auto=format&fit=crop'
   },
   {
     id: 'trading',
     title: 'Trading Division',
     tagline: 'Global Industrial Supply',
     description: 'Strategic supply chain management for specialized alloys, HVAC consumables, and vibration control systems from world-class manufacturers.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1200'
+    image: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=1470&auto=format&fit=crop'
   },
   {
     id: 'safety',
     title: 'Safety Equipment',
     tagline: 'HSE & Workforce Protection',
-    description: 'Leading provider of certified Personal Protection Equipment (PPE). We secure industrial workforces with environmentally friendly, high-quality safety ecosystems.',
-    image: 'https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&q=80&w=1200'
+    description: 'Leading provider of certified Personal Protection Equipment (PPE). We secure industrial workforces with environmentally friendly, high-quality safety gear.',
+    image: 'https://images.unsplash.com/photo-1591955506264-3f5a6834570a?q=80&w=1470&auto=format&fit=crop'
   }
 ];
 
