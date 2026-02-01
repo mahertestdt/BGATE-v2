@@ -17,8 +17,6 @@ const Layout: React.FC<LayoutProps> = ({ children, showInquiry = true }) => {
       </main>
       {showInquiry && <QuickInquiry />}
       <Footer />
-      {/* Spacer to prevent content overlap with AI FAB on mobile */}
-      <div className="h-24 md:hidden"></div>
     </div>
   );
 };
