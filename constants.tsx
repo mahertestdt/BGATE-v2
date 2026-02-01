@@ -21,26 +21,26 @@ export const DIVISIONS: DivisionExtended[] = [
     image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1470&auto=format&fit=crop',
     details: [
       {
-        label: "Products",
+        label: "Hardware Solutions",
         items: [
-          "BMS Control System", "DDC Panels", "PLC Panels", "Lighting controls", 
-          "Motor starters", "Soft start controllers", "Variable speed drives and controls",
-          "3-Way & 2-Way motorized valves", "Thermostats", "Humidistats", 
-          "Custom products", "Pre-Engineered products"
+          "BMS Control Systems", "DDC Panels", "PLC Panels", "Lighting controls", 
+          "Motor starters", "Soft start controllers", "Variable speed drives",
+          "Motorized valves (2-Way/3-Way)", "Thermostats", "Humidistats", 
+          "Custom Control Panels", "Pre-Engineered Systems"
         ]
       },
       {
-        label: "Applications",
+        label: "Key Applications",
         items: [
-          "HVAC", "Sewage water control", "Food Processing", 
-          "Power Generation", "Pumping Stations", "Agriculture"
+          "HVAC Automation", "Sewage water control", "Food Processing", 
+          "Power Generation", "Industrial Pumping Stations", "Agriculture Systems"
         ]
       },
       {
-        label: "Services",
+        label: "Lifecycle Services",
         items: [
-          "Designing", "Programming", "Procurement", "Assembly", 
-          "Testing", "Commissioning", "Documentation", "Training & Seminars"
+          "Systems Designing", "Software Programming", "Procurement", "Panel Assembly", 
+          "Field Testing", "System Commissioning", "Full Documentation", "Technical Training"
         ]
       }
     ]
@@ -53,31 +53,30 @@ export const DIVISIONS: DivisionExtended[] = [
     image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=1470&auto=format&fit=crop',
     details: [
       {
-        label: "Division Provides",
+        label: "Scope of Provision",
         items: [
           "Pipe work insulation", 
-          "Cladding Services", 
-          "Complete range of Thermal/Cold insulation", 
-          "Protection for Pipe work and Fittings", 
+          "Cladding & Jacketing Services", 
+          "Cryogenic & Thermal insulation", 
+          "Fitting Protection Systems", 
           "Vessels and Boilers", 
-          "Duct work and Tanks in High/Low Temperatures", 
-          "Heating and Ventilation Insulation",
-          "Removable, Reusable Insulation Blankets", 
-          "Scaffolding services"
+          "High/Low Temp Duct work", 
+          "Ventilation Insulation",
+          "Removable & Reusable Blankets", 
+          "Industrial Scaffolding"
         ]
       },
       {
-        label: "Our Customers",
+        label: "Customer Sectors",
         items: [
-          "Petrochemical plants", 
+          "Petrochemical Plants", 
           "Oil Refineries", 
-          "Natural Gas Compressor stations", 
-          "Electrical Power Plants", 
-          "Equipment manufacturers", 
-          "Work Boats", 
-          "Hospitals", 
-          "Universities", 
-          "High rise Buildings"
+          "Natural Gas Stations", 
+          "Power Plants", 
+          "Marine & Work Boats", 
+          "Healthcare Facilities", 
+          "Academic Institutions", 
+          "High-rise Infrastructure"
         ]
       }
     ]
@@ -102,17 +101,17 @@ export const PARTNERS: Partner[] = [
   {
     name: 'SAUTER',
     origin: 'Switzerland',
-    description: 'A European leader in Building Automation, HVAC DDC, BMS, and Control Valves.'
+    description: 'European leader in Building Automation and energy-efficient building management.'
   },
   {
     name: 'SIEMENS',
     origin: 'Germany',
-    description: 'Global standard for building technology and energy-efficient automation.'
+    description: 'Global standard for building technology and failure-secure automation.'
   },
   {
     name: 'TITUS',
     origin: 'USA',
-    description: 'World leader in air distribution and environmental terminal units.'
+    description: 'Pioneer in air distribution and environmental terminal units.'
   }
 ];
 
@@ -120,6 +119,10 @@ export const TRADING_CATALOG: ProductItem[] = [
   {
     category: 'HVAC Systems',
     items: ['Cooling Equipment', 'Consumables', 'Humidifiers', 'Heat Exchangers']
+  },
+  {
+    category: 'Flow Control',
+    items: ['Gate & Globe Valves', 'SS Pipes', 'Expansion Joints']
   }
 ];
 

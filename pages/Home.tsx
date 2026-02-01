@@ -38,7 +38,6 @@ const Home: React.FC = () => {
             alt="Industrial Backbone"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-transparent to-black"></div>
-          <div className="absolute inset-0 bg-black/20"></div>
         </div>
         
         <div className="container mx-auto px-6 relative z-10">
@@ -68,7 +67,7 @@ const Home: React.FC = () => {
             </motion.h1>
 
             <motion.p variants={itemVariants} className="text-xl md:text-2xl text-slate-200 mb-14 leading-relaxed max-w-2xl font-light border-l border-blue-600/30 pl-8">
-              Pioneering high-performance building automation, thermal insulation solutions, and strategic industrial supply for Saudi Arabia's growing infrastructure.
+              Pioneering high-performance building automation, thermal insulation solutions, and strategic industrial supply for Saudi Arabia's infrastructure.
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-6">
