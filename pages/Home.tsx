@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { DIVISIONS, PARTNERS, BRAND_NAME } from '../constants';
 import { motion } from 'framer-motion';
@@ -38,14 +37,14 @@ const Home: React.FC = () => {
               <span className="text-7xl md:text-[10rem] lg:text-[11rem] leading-[0.85] block">
                 {BRAND_NAME}
               </span>
-              <div className="flex flex-col mt-2 md:mt-4">
+              <span className="flex flex-col mt-2 md:mt-4">
                 <span className="text-blue-600 italic text-xl md:text-4xl lg:text-5xl tracking-[0.1em] md:tracking-[0.3em] leading-none block">
                   Industrial
                 </span>
                 <span className="text-blue-600 italic text-xl md:text-4xl lg:text-5xl tracking-[0.1em] md:tracking-[0.3em] leading-none block mt-1 md:mt-2">
                   Excellence
                 </span>
-              </div>
+              </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-slate-400 mb-12 leading-relaxed max-w-2xl font-light">

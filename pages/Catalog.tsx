@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TRADING_CATALOG } from '../constants';
 
@@ -56,7 +55,7 @@ const Catalog: React.FC = () => {
                     <td className="px-8 py-6">ELECTRICAL HEATING</td>
                     <td className="px-8 py-6">DUCT HEATERS, SCR CONTROL</td>
                   </tr>
-                  <tr className="border-b border-white/5 bg-white/2 hover:bg-white/5 transition-colors">
+                  <tr className="border-b border-white/5 bg-white/5 hover:bg-white/5 transition-colors">
                     <td className="px-8 py-6 font-black text-white">TITUS</td>
                     <td className="px-8 py-6">AIR DISTRIBUTION</td>
                     <td className="px-8 py-6">VAV TERMINALS, DIFFUSERS</td>
